@@ -13,7 +13,7 @@ public record Money(BigDecimal amount, Currency currency) {
         if (Objects.isNull(currency)) {
             throw new IllegalArgumentException("Currency cannot be null");
         }
-        if (amount.scale() > currency().getDefaultFractionDigits()) {
+        if (amount.scale() > currency.getDefaultFractionDigits()) {
             throw new IllegalArgumentException("Amount scale must be less than or equal to the currency fraction digits");
         }
     }
