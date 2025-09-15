@@ -1,0 +1,27 @@
+<mat-card class="article-card">
+  <img mat-card-image [alt]="article().title" [src]="article().urlToImage"/>
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ article().title }}</mat-card-title>
+      <mat-card-subtitle> {{ article().publishedAt | date:'medium'  }} </mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <p> {{ article().description }}</p>
+  </mat-card-content>
+  <mat-card-actions class="actions-section">
+    <a [href]="article().url" class="action-button" color="primary"
+       mat-button
+       target="_blank">{{ 'article.read-more' | translate }}</a>
+    <span class="default-spacer"></span>
+    <a [href]="article().source.url" class="action-button"
+       mat-button
+       target="_blank">{{ article().source.name }}</a>
+    <button aria-label="Comments" color="white" mat-icon-button>
+      <mat-icon>comment</mat-icon>
+    </button>
+    <button (click)="shareArticle()" aria-label="Share Article" color="white" mat-icon-button>
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
